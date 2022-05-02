@@ -1,0 +1,123 @@
+===============
+Simple Packages
+===============
+
+SomeProject
+someproject
+some-project
+some_project
+some-project2
+
+---
+
+(source_file
+ (name)
+ (name)
+ (name)
+ (name)
+ (name)
+ )
+
+
+
+==================
+Versioned Packages
+==================
+
+someproject == 1.0.0
+someproject >= 1.0.0
+someproject <= 1.0.0
+someproject== 1.0.0
+someproject>= 1.0.0
+someproject<= 1.0.0
+someproject ==1.0.0
+someproject >=1.0.0
+someproject <=1.0.0
+someproject==1.0.0
+someproject>=1.0.0
+someproject<=1.0.0
+
+---
+
+(source_file
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ )
+
+==================================
+Major and Minor Versioned Packages
+==================================
+
+someproject == 1.0
+someproject >= 1.0
+someproject <= 1.0
+someproject== 1.0
+someproject>= 1.0
+someproject<= 1.0
+someproject ==1.0
+someproject >=1.0
+someproject <=1.0
+someproject==1.0
+someproject>=1.0
+someproject<=1.0
+
+---
+
+(source_file
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ )
+
+=====================
+RC Versioned Packages
+=====================
+
+someproject == 1.0.0rc0
+someproject >= 1.0.0rc0
+someproject <= 1.0.0rc0
+someproject== 1.0.0rc0
+someproject>= 1.0.0rc0
+someproject<= 1.0.0rc0
+someproject ==1.0.0rc0
+someproject >=1.0.0rc0
+someproject <=1.0.0rc0
+someproject==1.0.0rc0
+someproject>=1.0.0rc0
+someproject<=1.0.0rc0
+
+---
+
+(source_file
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ (name) (version)
+ )

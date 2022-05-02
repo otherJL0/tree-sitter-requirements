@@ -1,0 +1,32 @@
+{
+  "name": "tree-sitter-requirements",
+  "version": "1.0.0",
+  "description": "Tree-sitter grammar for Python requirements files",
+  "main": "bindings/node",
+  "scripts": {
+    "generate": "tree-sitter generate",
+    "test": "tree-sitter test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/otherJL0/tree-sitter-requirements.git"
+  },
+  "keywords": [
+    "tree-sitter",
+    "requirements.txt",
+    "python",
+    "pip"
+  ],
+  "author": "otherJL0",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/otherJL0/tree-sitter-requirements/issues"
+  },
+  "homepage": "https://github.com/otherJL0/tree-sitter-requirements#readme",
+  "dependencies": {
+    "nan": "^2.15.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.6"
+  }
+}
