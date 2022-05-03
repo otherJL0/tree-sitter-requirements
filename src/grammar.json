@@ -71,7 +71,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "extras"
+              "name": "_extras"
             },
             {
               "type": "BLANK"
@@ -80,7 +80,7 @@
         }
       ]
     },
-    "extras": {
+    "_extras": {
       "type": "SEQ",
       "members": [
         {
@@ -88,8 +88,13 @@
           "value": "["
         },
         {
-          "type": "SYMBOL",
-          "name": "name"
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "name"
+          },
+          "named": true,
+          "value": "extra"
         },
         {
           "type": "REPEAT",
@@ -101,8 +106,13 @@
                 "value": ","
               },
               {
-                "type": "SYMBOL",
-                "name": "name"
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "name"
+                },
+                "named": true,
+                "value": "extra"
               }
             ]
           }

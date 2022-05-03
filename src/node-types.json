@@ -5,21 +5,6 @@
     "fields": {}
   },
   {
-    "type": "extras",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "name",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "marker_expr",
     "named": true,
     "fields": {},
@@ -75,7 +60,7 @@
           "named": true
         },
         {
-          "type": "extras",
+          "type": "extra",
           "named": true
         },
         {
@@ -178,6 +163,10 @@
   },
   {
     "type": "comment",
+    "named": true
+  },
+  {
+    "type": "extra",
     "named": true
   },
   {

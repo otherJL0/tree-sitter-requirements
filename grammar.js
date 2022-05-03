@@ -11,8 +11,8 @@ module.exports = grammar({
 
     _version_specifier_clause: $ => seq($.version_specifier, repeat(seq(',', $.version_specifier))),
     version_specifier: $ => seq($._version_cmp, $.version),
-    _package_spec: $ => seq($.name, optional($.extras)),
-    extras: $ => seq('[', $.name, repeat(seq(',', $.name)), ']'),
+    _package_spec: $ => seq($.name, optional($._extras)),
+    _extras: $ => seq('[', alias($.name, $.extra), repeat(seq(',', alias($.name, $.extra))), ']'),
     package_spec: $ => prec.left(seq($._package_spec, optional($._version_specifier_clause), optional(seq(';', $.marker_expr)),optional($.comment))),
 
 
