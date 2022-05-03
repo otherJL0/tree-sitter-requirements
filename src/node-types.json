@@ -26,7 +26,17 @@
   {
     "type": "marker_op",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "version_cmp",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "marker_var",
@@ -103,15 +113,24 @@
     "fields": {}
   },
   {
+    "type": "version_cmp",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "version_specifier",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
           "type": "version",
+          "named": true
+        },
+        {
+          "type": "version_cmp",
           "named": true
         }
       ]
@@ -167,11 +186,11 @@
   },
   {
     "type": "extra",
-    "named": true
+    "named": false
   },
   {
     "type": "extra",
-    "named": false
+    "named": true
   },
   {
     "type": "implementation_name",

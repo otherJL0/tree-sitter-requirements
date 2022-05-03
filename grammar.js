@@ -10,7 +10,7 @@ module.exports = grammar({
     ),
 
     _version_specifier_clause: $ => seq($.version_specifier, repeat(seq(',', $.version_specifier))),
-    version_specifier: $ => seq($._version_cmp, $.version),
+    version_specifier: $ => seq($.version_cmp, $.version),
     _package_spec: $ => seq($.name, optional($._extras)),
     _extras: $ => seq('[', alias($.name, $.extra), repeat(seq(',', alias($.name, $.extra))), ']'),
     package_spec: $ => prec.left(seq($._package_spec, optional($._version_specifier_clause), optional(seq(';', $.marker_expr)),optional($.comment))),
@@ -18,7 +18,7 @@ module.exports = grammar({
 
     comment: _ => token(seq('#', /.*/)),
 
-    _version_cmp: _ => choice(
+    version_cmp: _ => choice(
       '~=', // Compatible release
       '==', // Version matching
       '!=', // Version exclusion
@@ -44,7 +44,7 @@ module.exports = grammar({
       'extra',
     ),
 
-    marker_op: $ => choice($._version_cmp, 'in', seq('not', /\s+/, 'in')),
+    marker_op: $ => choice($.version_cmp, 'in', seq('not', /\s+/, 'in')),
     marker_var: $ => choice($.env_var, $.str),
     marker_expr: $ => seq($.marker_var, $.marker_op, $.marker_var),
 

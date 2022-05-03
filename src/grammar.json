@@ -51,7 +51,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_version_cmp"
+          "name": "version_cmp"
         },
         {
           "type": "SYMBOL",
@@ -197,7 +197,7 @@
         ]
       }
     },
-    "_version_cmp": {
+    "version_cmp": {
       "type": "CHOICE",
       "members": [
         {
@@ -288,7 +288,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_version_cmp"
+          "name": "version_cmp"
         },
         {
           "type": "STRING",
