@@ -30,8 +30,12 @@ module.exports = grammar({
       '===', // Arbitrary equality
     ),
 
-    option: $ => choice($._extra_index_url),
-    _extra_index_url: $ => seq(choice('-e', '--extra-index-url'), $.url),
+    option: $ => choice($._extra_index_url, $._index_url, $._editable, $._requirement_file, $._constraint_file),
+    _extra_index_url: $ => seq('--extra-index-url', $.url),
+    _index_url: $ => seq('--index-url', $.url),
+    _editable: $ => seq(choice('-e', '--editable'), choice($.url, $.local_path)),
+    _requirement_file: $ => seq(choice('-r', '--requirement'), $.local_path),
+    _constraint_file: $ => seq(choice('-c', '--constraint'), $.local_path),
 
 
     env_var: _ => choice(
@@ -49,6 +53,9 @@ module.exports = grammar({
     ),
 
     url: _ => /(([a-z]+)\+)?https?\S+/,
+    // local_path: _ => /\.?(\/)?[]*\.?\w+/,
+    local_path: _ => /\/?((\.\.|\S+)\/)*\S+/,
+
     marker_op: $ => choice($.version_cmp, 'in', seq('not', /\s+/, 'in')),
     marker_var: $ => choice($.env_var, $.str),
     marker_expr: $ => seq($.marker_var, $.marker_op, $.marker_var),

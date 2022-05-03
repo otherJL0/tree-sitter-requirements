@@ -66,6 +66,10 @@
       "required": true,
       "types": [
         {
+          "type": "local_path",
+          "named": true
+        },
+        {
           "type": "url",
           "named": true
         }
@@ -164,11 +168,35 @@
     "named": false
   },
   {
+    "type": "--constraint",
+    "named": false
+  },
+  {
+    "type": "--editable",
+    "named": false
+  },
+  {
     "type": "--extra-index-url",
     "named": false
   },
   {
+    "type": "--index-url",
+    "named": false
+  },
+  {
+    "type": "--requirement",
+    "named": false
+  },
+  {
+    "type": "-c",
+    "named": false
+  },
+  {
     "type": "-e",
+    "named": false
+  },
+  {
+    "type": "-r",
     "named": false
   },
   {
@@ -213,11 +241,11 @@
   },
   {
     "type": "extra",
-    "named": true
+    "named": false
   },
   {
     "type": "extra",
-    "named": false
+    "named": true
   },
   {
     "type": "implementation_name",
@@ -230,6 +258,10 @@
   {
     "type": "in",
     "named": false
+  },
+  {
+    "type": "local_path",
+    "named": true
   },
   {
     "type": "name",
