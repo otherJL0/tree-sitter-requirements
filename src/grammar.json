@@ -139,6 +139,27 @@
             "type": "CHOICE",
             "members": [
               {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ";"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "marker_expr"
+                  }
+                ]
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
                 "type": "SYMBOL",
                 "name": "comment"
               },
@@ -203,9 +224,122 @@
         }
       ]
     },
+    "env_var": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "os_name"
+        },
+        {
+          "type": "STRING",
+          "value": "sys_platform"
+        },
+        {
+          "type": "STRING",
+          "value": "platform_machine"
+        },
+        {
+          "type": "STRING",
+          "value": "platform_python_implementation"
+        },
+        {
+          "type": "STRING",
+          "value": "platform_release"
+        },
+        {
+          "type": "STRING",
+          "value": "platform_version"
+        },
+        {
+          "type": "STRING",
+          "value": "python_version"
+        },
+        {
+          "type": "STRING",
+          "value": "python_full_version"
+        },
+        {
+          "type": "STRING",
+          "value": "implementation_name"
+        },
+        {
+          "type": "STRING",
+          "value": "implementation_version"
+        },
+        {
+          "type": "STRING",
+          "value": "extra"
+        }
+      ]
+    },
+    "marker_op": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_version_cmp"
+        },
+        {
+          "type": "STRING",
+          "value": "in"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "not"
+            },
+            {
+              "type": "PATTERN",
+              "value": "\\s+"
+            },
+            {
+              "type": "STRING",
+              "value": "in"
+            }
+          ]
+        }
+      ]
+    },
+    "marker_var": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "env_var"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "str"
+        }
+      ]
+    },
+    "marker_expr": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "marker_var"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "marker_op"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "marker_var"
+        }
+      ]
+    },
     "name": {
       "type": "PATTERN",
       "value": "[A-Za-z0-9][A-Za-z0-9\\.\\-_]*[A-Za-z0-9]"
+    },
+    "str": {
+      "type": "PATTERN",
+      "value": "(\\'[^\\']*\\'|\\\"[^\\\"]*\\\")"
     },
     "_pre_release": {
       "type": "PATTERN",

@@ -1,5 +1,10 @@
 [
   {
+    "type": "env_var",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "extras",
     "named": true,
     "fields": {},
@@ -9,6 +14,49 @@
       "types": [
         {
           "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "marker_expr",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "marker_op",
+          "named": true
+        },
+        {
+          "type": "marker_var",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "marker_op",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "marker_var",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "env_var",
+          "named": true
+        },
+        {
+          "type": "str",
           "named": true
         }
       ]
@@ -28,6 +76,10 @@
         },
         {
           "type": "extras",
+          "named": true
+        },
+        {
+          "type": "marker_expr",
           "named": true
         },
         {
@@ -89,6 +141,10 @@
     "named": false
   },
   {
+    "type": ";",
+    "named": false
+  },
+  {
     "type": "<",
     "named": false
   },
@@ -125,8 +181,64 @@
     "named": true
   },
   {
+    "type": "extra",
+    "named": false
+  },
+  {
+    "type": "implementation_name",
+    "named": false
+  },
+  {
+    "type": "implementation_version",
+    "named": false
+  },
+  {
+    "type": "in",
+    "named": false
+  },
+  {
     "type": "name",
     "named": true
+  },
+  {
+    "type": "not",
+    "named": false
+  },
+  {
+    "type": "os_name",
+    "named": false
+  },
+  {
+    "type": "platform_machine",
+    "named": false
+  },
+  {
+    "type": "platform_python_implementation",
+    "named": false
+  },
+  {
+    "type": "platform_release",
+    "named": false
+  },
+  {
+    "type": "platform_version",
+    "named": false
+  },
+  {
+    "type": "python_full_version",
+    "named": false
+  },
+  {
+    "type": "python_version",
+    "named": false
+  },
+  {
+    "type": "str",
+    "named": true
+  },
+  {
+    "type": "sys_platform",
+    "named": false
   },
   {
     "type": "~=",

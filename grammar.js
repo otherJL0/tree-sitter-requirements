@@ -13,7 +13,7 @@ module.exports = grammar({
     version_specifier: $ => seq($._version_cmp, $.version),
     _package_spec: $ => seq($.name, optional($.extras)),
     extras: $ => seq('[', $.name, repeat(seq(',', $.name)), ']'),
-    package_spec: $ => prec.left(seq($._package_spec, optional($._version_specifier_clause), optional($.comment))),
+    package_spec: $ => prec.left(seq($._package_spec, optional($._version_specifier_clause), optional(seq(';', $.marker_expr)),optional($.comment))),
 
 
     comment: _ => token(seq('#', /.*/)),
@@ -28,8 +28,28 @@ module.exports = grammar({
       '>', // Exclusive ordered comparison
       '===', // Arbitrary equality
     ),
+  
+
+    env_var: _ => choice(
+      'os_name',
+      'sys_platform',
+      'platform_machine',
+      'platform_python_implementation',
+      'platform_release',
+      'platform_version',
+      'python_version',
+      'python_full_version',
+      'implementation_name',
+      'implementation_version',
+      'extra',
+    ),
+
+    marker_op: $ => choice($._version_cmp, 'in', seq('not', /\s+/, 'in')),
+    marker_var: $ => choice($.env_var, $.str),
+    marker_expr: $ => seq($.marker_var, $.marker_op, $.marker_var),
 
     name: _ => /[A-Za-z0-9][A-Za-z0-9\.\-_]*[A-Za-z0-9]/,
+    str: _ => /(\'[^\']*\'|\"[^\"]*\")/,
 
     _pre_release: _ => /\.\d+(a|b|rc)\d+/,
     _post_release: _ => /\.post\d+/,
