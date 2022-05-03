@@ -11,6 +11,9 @@ module.exports = grammar({
 
     _version_specifier_clause: $ => seq($.version_specifier, repeat(seq(',', $.version_specifier))),
     version_specifier: $ => seq($._version_cmp, $.version),
+    package_name: $ => seq($.name, optional($.extras)),
+    extras: $ => seq('[', $.name, repeat(seq(',', $.name)), ']'),
+    name_req: $ => seq($.package_name, optional($._version_specifier_clause)),
 
 
     comment: _ => token(seq('#', /.*/)),
@@ -26,6 +29,7 @@ module.exports = grammar({
       '===', // Arbitrary equality
     ),
 
+    name: _ => /[A-Za-z\d][\w\.\-]*[A-Z\d]/,
 
     _pre_release: _ => /\.\d+(a|b|rc)\d+/,
     _post_release: _ => /\.post\d+/,
