@@ -4,9 +4,13 @@ module.exports = grammar({
   rules: {
     requirements: $ => repeat($._expression),
 
-    _expression: $ => choice($.version),
+    _expression: $ => choice(
+      $.version,
+      $._version_specifier_clause,
+    ),
 
-    _version_specifier_clause: $ => seq($._version_cmp, $.version),
+    _version_specifier_clause: $ => seq($.version_specifier, repeat(seq(',', $.version_specifier))),
+    version_specifier: $ => seq($._version_cmp, $.version),
 
 
     comment: _ => token(seq('#', /.*/)),
@@ -21,6 +25,7 @@ module.exports = grammar({
       '>', // Exclusive ordered comparison
       '===', // Arbitrary equality
     ),
+
 
     _pre_release: _ => /\.\d+(a|b|rc)\d+/,
     _post_release: _ => /\.post\d+/,
