@@ -6,6 +6,8 @@ module.exports = grammar({
 
     _expression: $ => choice($.version),
 
+    _version_specifier_clause: $ => seq($._version_cmp, $.version),
+
 
     comment: _ => token(seq('#', /.*/)),
 
@@ -30,7 +32,8 @@ module.exports = grammar({
       optional(choice(
         seq(optional($._pre_release), optional($._post_release), optional($._developmental_release)),
         seq($._local_version, repeat(/\.\d+/))
-      ))
+      )),
+      optional(/\.\*/),
     ),
 
   }
