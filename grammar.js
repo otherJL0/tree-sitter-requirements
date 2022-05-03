@@ -10,14 +10,14 @@ module.exports = grammar({
     comment: _ => token(seq('#', /.*/)),
 
     _version_cmp: _ => choice(
-      '<',
-      '<=',
-      '!=',
-      '==',
-      '>=',
-      '>',
-      '~=',
-      '===',
+      '~=', // Compatible release
+      '==', // Version matching
+      '!=', // Version exclusion
+      '<=', // Inclusive ordered comparison
+      '>=', // Inclusive ordered comparison
+      '<', // Exclusive ordered comparison
+      '>', // Exclusive ordered comparison
+      '===', // Arbitrary equality
     ),
 
     _pre_release: _ => /\.\d+(a|b|rc)\d+/,
