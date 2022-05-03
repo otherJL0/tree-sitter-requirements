@@ -320,7 +320,7 @@
     },
     "url": {
       "type": "PATTERN",
-      "value": "(([a-z]+)\\+)?https?\\w+"
+      "value": "(([a-z]+)\\+)?https?\\S+"
     },
     "marker_op": {
       "type": "CHOICE",

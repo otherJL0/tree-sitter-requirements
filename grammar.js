@@ -48,7 +48,7 @@ module.exports = grammar({
       'extra',
     ),
 
-    url: _ => /(([a-z]+)\+)?https?\w+/,
+    url: _ => /(([a-z]+)\+)?https?\S+/,
     marker_op: $ => choice($.version_cmp, 'in', seq('not', /\s+/, 'in')),
     marker_var: $ => choice($.env_var, $.str),
     marker_expr: $ => seq($.marker_var, $.marker_op, $.marker_var),
