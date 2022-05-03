@@ -30,12 +30,13 @@ module.exports = grammar({
       '===', // Arbitrary equality
     ),
 
-    option: $ => choice($._extra_index_url, $._index_url, $._editable, $._requirement_file, $._constraint_file),
-    _extra_index_url: $ => seq('--extra-index-url', $.url),
-    _index_url: $ => seq('--index-url', $.url),
-    _editable: $ => seq(choice('-e', '--editable'), choice($.url, $.local_path)),
-    _requirement_file: $ => seq(choice('-r', '--requirement'), $.local_path),
-    _constraint_file: $ => seq(choice('-c', '--constraint'), $.local_path),
+    option: $ => seq(choice(
+    '--extra-index-url',
+    '--index-url',
+    '-e', '--editable',
+    '-r', '--requirement',
+    '-c', '--constraint',
+    ), optional(choice($.url, $.local_path))),
 
 
     env_var: _ => choice(
