@@ -1,0 +1,10 @@
+===============
+Complex Example
+===============
+
+requests [security,tests] >= 2.8.1, == 2.8.* ; python_version < "2.7"
+
+---
+
+(requirements
+ )
