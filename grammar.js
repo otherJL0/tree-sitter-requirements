@@ -2,27 +2,36 @@ module.exports = grammar({
   name: 'requirements',
 
   rules: {
-    source_file: $ => repeat($._expression),
+    requirements: $ => repeat($._expression),
 
-    _expression: $ => choice(
-      $._package_expression,
-      $.comment,
-    ),
+    _expression: $ => choice($.version),
 
-    _package_expression: $ => prec.left(seq($._package, optional($._version_constraints), optional($.comment))),
-    _package: $ => seq($.name, optional($.extra)),
-    extra: $ => seq('[', $.name, ']'),
-
-    _version_constraints: $ => seq(
-      field('operators', choice('==', '!=', '>=', '<=', '~=')),
-      $.version
-    ),
 
     comment: _ => token(seq('#', /.*/)),
 
-    name: _ => /[A-Za-z]+[A-Za-z-_\d]+/,
-    extras: _ => /\[.+\]/,
-    version: _ => /\d+\.\d+(\.\d[A-Za-z]*\d*)?/,
+    _version_cmp: _ => choice(
+      '<',
+      '<=',
+      '!=',
+      '==',
+      '>=',
+      '>',
+      '~=',
+      '===',
+    ),
+
+    _pre_release: _ => /\.\d+(a|b|rc)\d+/,
+    _post_release: _ => /\.post\d+/,
+    _developmental_release: _ => /\.dev\d+/,
+    _local_version: _ => /\.\d+\+[\d\w]+/,
+    version: $ => seq(
+      /\d+/,
+      repeat(/\.\d+/),
+      optional(choice(
+        seq(optional($._pre_release), optional($._post_release), optional($._developmental_release)),
+        seq($._local_version, repeat(/\.\d+/))
+      ))
+    ),
 
   }
 });

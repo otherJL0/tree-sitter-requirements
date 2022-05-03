@@ -1,0 +1,175 @@
+======================
+major.minor versioning
+======================
+
+0.1
+0.2
+0.3
+1.0
+1.1
+
+---
+
+(requirements
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+)
+
+
+============================
+major.minor.micro versioning
+============================
+
+1.1.0
+1.1.1
+1.1.2
+1.2.0
+
+---
+
+(requirements
+ (version)
+ (version)
+ (version)
+ (version)
+)
+
+
+==================================
+major.minor pre-release versioning
+==================================
+
+0.9
+1.0a1
+1.0a2
+1.0b1
+1.0rc1
+1.0
+1.1a1
+
+---
+
+(requirements
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+)
+
+
+
+====================================
+major.minor developmental versioning
+====================================
+
+1.0.dev1
+1.0.dev2
+1.0.dev3
+1.0.dev4
+1.0rc1.dev5
+1.0rc2.dev6
+1.0.post1
+1.1.dev1
+1.0a1.dev2
+1.0a2.dev3
+1.0b1.dev4
+1.0rc1.dev5
+1.1a1.dev6
+
+---
+
+(requirements
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+)
+
+
+===================
+date based releases
+===================
+
+2012.1
+2012.2
+2012.3
+2012.15
+2013.1
+2013.2
+
+---
+
+(requirements
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+)
+
+
+===========================
+Other Possible Combinations
+===========================
+
+1.dev0
+1.0.dev456
+1.0a1
+1.0a2.dev456
+1.0a12.dev456
+1.0a12
+1.0b1.dev456
+1.0b2
+1.0b2.post345.dev456
+1.0b2.post345
+1.0rc1.dev456
+1.0rc1
+1.0
+1.0+abc.5
+1.0+abc.7
+1.0+5
+1.0.post456.dev34
+1.0.post456
+1.0.15
+1.1.dev1
+
+---
+
+(requirements
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+ (version)
+)  
