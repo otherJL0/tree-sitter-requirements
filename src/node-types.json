@@ -15,7 +15,7 @@
     }
   },
   {
-    "type": "package_name",
+    "type": "package_spec",
     "named": true,
     "fields": {},
     "children": {
@@ -28,6 +28,10 @@
         },
         {
           "type": "name",
+          "named": true
+        },
+        {
+          "type": "version_specifier",
           "named": true
         }
       ]
@@ -42,11 +46,11 @@
       "required": false,
       "types": [
         {
-          "type": "version",
+          "type": "package_spec",
           "named": true
         },
         {
-          "type": "version_specifier",
+          "type": "version",
           "named": true
         }
       ]

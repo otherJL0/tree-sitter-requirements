@@ -17,7 +17,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_version_specifier_clause"
+          "name": "package_spec"
         }
       ]
     },
@@ -59,7 +59,7 @@
         }
       ]
     },
-    "package_name": {
+    "_package_spec": {
       "type": "SEQ",
       "members": [
         {
@@ -113,12 +113,12 @@
         }
       ]
     },
-    "name_req": {
+    "package_spec": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "package_name"
+          "name": "_package_spec"
         },
         {
           "type": "CHOICE",
@@ -189,7 +189,7 @@
     },
     "name": {
       "type": "PATTERN",
-      "value": "[A-Za-z\\d][\\w\\.\\-]*[A-Z\\d]"
+      "value": "[A-Za-z0-9][A-Za-z0-9\\.\\-_]*[A-Za-z0-9]"
     },
     "_pre_release": {
       "type": "PATTERN",

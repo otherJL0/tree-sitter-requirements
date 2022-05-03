@@ -2,17 +2,16 @@
 Complex Specifier
 =================
 
-~= 0.9, >= 1.0, != 1.3.4.*, < 2.0
+package-name ~= 0.9, >= 1.0, != 1.3.4.*, < 2.0
 
 ---
 
 (requirements
- (version_specifier
- (version))
- (version_specifier
- (version))
- (version_specifier
- (version))
- (version_specifier
- (version))
+ (package_spec 
+  (name) 
+  (version_specifier (version))
+  (version_specifier (version))
+  (version_specifier (version))
+  (version_specifier (version))
+ )
 )
