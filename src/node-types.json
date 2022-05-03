@@ -23,6 +23,10 @@
       "required": true,
       "types": [
         {
+          "type": "comment",
+          "named": true
+        },
+        {
           "type": "extras",
           "named": true
         },
@@ -46,11 +50,11 @@
       "required": false,
       "types": [
         {
-          "type": "package_spec",
+          "type": "comment",
           "named": true
         },
         {
-          "type": "version",
+          "type": "package_spec",
           "named": true
         }
       ]
@@ -115,6 +119,10 @@
   {
     "type": "]",
     "named": false
+  },
+  {
+    "type": "comment",
+    "named": true
   },
   {
     "type": "name",

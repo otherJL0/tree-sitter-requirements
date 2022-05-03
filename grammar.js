@@ -5,6 +5,7 @@ module.exports = grammar({
     requirements: $ => repeat($._expression),
 
     _expression: $ => choice(
+      $.comment,
       $.package_spec,
     ),
 
@@ -12,7 +13,7 @@ module.exports = grammar({
     version_specifier: $ => seq($._version_cmp, $.version),
     _package_spec: $ => seq($.name, optional($.extras)),
     extras: $ => seq('[', $.name, repeat(seq(',', $.name)), ']'),
-    package_spec: $ => seq($._package_spec, optional($._version_specifier_clause)),
+    package_spec: $ => prec.left(seq($._package_spec, optional($._version_specifier_clause), optional($.comment))),
 
 
     comment: _ => token(seq('#', /.*/)),
