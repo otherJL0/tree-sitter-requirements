@@ -6,6 +6,7 @@ module.exports = grammar({
 
     _expression: $ => choice(
       $.comment,
+      $.option,
       $.package_spec,
     ),
 
@@ -13,7 +14,7 @@ module.exports = grammar({
     version_specifier: $ => seq($.version_cmp, $.version),
     _package_spec: $ => seq($.name, optional($._extras)),
     _extras: $ => seq('[', alias($.name, $.extra), repeat(seq(',', alias($.name, $.extra))), ']'),
-    package_spec: $ => prec.left(seq($._package_spec, optional($._version_specifier_clause), optional(seq(';', $.marker_expr)),optional($.comment))),
+    package_spec: $ => prec.left(seq($._package_spec, optional($._version_specifier_clause), optional(seq(';', $.marker_expr)), optional($.comment))),
 
 
     comment: _ => token(seq('#', /.*/)),
@@ -28,7 +29,10 @@ module.exports = grammar({
       '>', // Exclusive ordered comparison
       '===', // Arbitrary equality
     ),
-  
+
+    option: $ => choice($._extra_index_url),
+    _extra_index_url: $ => seq(choice('-e', '--extra-index-url'), $.url),
+
 
     env_var: _ => choice(
       'os_name',
@@ -44,6 +48,7 @@ module.exports = grammar({
       'extra',
     ),
 
+    url: _ => /(([a-z]+)\+)?https?\w+/,
     marker_op: $ => choice($.version_cmp, 'in', seq('not', /\s+/, 'in')),
     marker_var: $ => choice($.env_var, $.str),
     marker_expr: $ => seq($.marker_var, $.marker_op, $.marker_var),

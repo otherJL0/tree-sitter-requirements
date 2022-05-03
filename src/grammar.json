@@ -17,6 +17,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "option"
+        },
+        {
+          "type": "SYMBOL",
           "name": "package_spec"
         }
       ]
@@ -234,6 +238,37 @@
         }
       ]
     },
+    "option": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_extra_index_url"
+        }
+      ]
+    },
+    "_extra_index_url": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "-e"
+            },
+            {
+              "type": "STRING",
+              "value": "--extra-index-url"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "url"
+        }
+      ]
+    },
     "env_var": {
       "type": "CHOICE",
       "members": [
@@ -282,6 +317,10 @@
           "value": "extra"
         }
       ]
+    },
+    "url": {
+      "type": "PATTERN",
+      "value": "(([a-z]+)\\+)?https?\\w+"
     },
     "marker_op": {
       "type": "CHOICE",
