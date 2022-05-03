@@ -239,62 +239,19 @@
       ]
     },
     "option": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "_extra_index_url"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_index_url"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_editable"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_requirement_file"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_constraint_file"
-        }
-      ]
-    },
-    "_extra_index_url": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "--extra-index-url"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "url"
-        }
-      ]
-    },
-    "_index_url": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "--index-url"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "url"
-        }
-      ]
-    },
-    "_editable": {
       "type": "SEQ",
       "members": [
         {
           "type": "CHOICE",
           "members": [
+            {
+              "type": "STRING",
+              "value": "--extra-index-url"
+            },
+            {
+              "type": "STRING",
+              "value": "--index-url"
+            },
             {
               "type": "STRING",
               "value": "-e"
@@ -302,30 +259,7 @@
             {
               "type": "STRING",
               "value": "--editable"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "url"
             },
-            {
-              "type": "SYMBOL",
-              "name": "local_path"
-            }
-          ]
-        }
-      ]
-    },
-    "_requirement_file": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "CHOICE",
-          "members": [
             {
               "type": "STRING",
               "value": "-r"
@@ -333,21 +267,7 @@
             {
               "type": "STRING",
               "value": "--requirement"
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "local_path"
-        }
-      ]
-    },
-    "_constraint_file": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "CHOICE",
-          "members": [
+            },
             {
               "type": "STRING",
               "value": "-c"
@@ -359,8 +279,25 @@
           ]
         },
         {
-          "type": "SYMBOL",
-          "name": "local_path"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "url"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "local_path"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
